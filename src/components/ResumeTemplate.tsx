@@ -223,9 +223,31 @@ export function ResumeTemplate({ author }: { author: Author }) {
                 )}
                 <div
                   className="rounded-[12px] overflow-hidden border border-gray-200 shadow-sm flex items-center justify-center bg-[#1a1a2e]"
-                  style={{ width: 72, height: 72 }}
+                  style={{ width: 72, height: 72, position: 'relative' }}
                 >
-                  <span style={{ color: '#ffffff', fontWeight: 800, fontSize: 16, letterSpacing: '0.02em' }}>
+                  <img
+                    src="/logo-white.png"
+                    alt="Company Logo"
+                    className="object-contain"
+                    style={{ width: '78%', height: '78%', zIndex: 2 }}
+                    loading="eager"
+                    onError={(e) => { e.currentTarget.style.display = 'none' }}
+                  />
+                  <span
+                    aria-hidden
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#ffffff',
+                      fontWeight: 800,
+                      fontSize: 16,
+                      letterSpacing: '0.02em',
+                      zIndex: 1,
+                    }}
+                  >
                     RF
                   </span>
                 </div>
