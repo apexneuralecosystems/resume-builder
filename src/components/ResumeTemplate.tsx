@@ -249,7 +249,7 @@ export function ResumeTemplate({ author }: { author: Author }) {
                       zIndex: 1,
                     }}
                   >
-                    RF
+                    
                   </span>
                 </div>
               </div>
