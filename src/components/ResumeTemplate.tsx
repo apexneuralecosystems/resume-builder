@@ -1,7 +1,6 @@
 import React from 'react'
 import { Award } from 'lucide-react'
 import { Author, CaseStudy as CaseStudyType } from '../types'
-import logoImg from '../img/logo-white.png'
 
 // ── Utilities ─────────────────────────────────────────────────────────────────
 
@@ -226,7 +225,9 @@ export function ResumeTemplate({ author }: { author: Author }) {
                   className="rounded-[12px] overflow-hidden border border-gray-200 shadow-sm flex items-center justify-center bg-[#1a1a2e]"
                   style={{ width: 72, height: 72 }}
                 >
-                  <img src={logoImg} alt="Company Logo" className="object-contain" style={{ width: '78%', height: '78%' }} loading="eager" />
+                  <span style={{ color: '#ffffff', fontWeight: 800, fontSize: 16, letterSpacing: '0.02em' }}>
+                    RF
+                  </span>
                 </div>
               </div>
             </div>
