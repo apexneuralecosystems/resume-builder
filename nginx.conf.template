@@ -1,4 +1,5 @@
 server {
+    listen 80;
     listen 3232;
     server_name _;
 
