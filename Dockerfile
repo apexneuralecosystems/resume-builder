@@ -27,6 +27,5 @@ COPY nginx.conf.template /etc/nginx/conf.d/default.conf.template
 COPY --from=builder /app/dist /usr/share/nginx/html
 
 EXPOSE 3232
-EXPOSE 80
 
 CMD ["sh", "-c", "BACKEND_BASE_URL=${BACKEND_BASE_URL:-https://resume.builderbackend.apexneural.cloud}; envsubst '$BACKEND_BASE_URL' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"]

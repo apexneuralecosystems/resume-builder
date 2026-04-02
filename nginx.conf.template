@@ -1,5 +1,4 @@
 server {
-    listen 80;
     listen 3232;
     server_name _;
 
@@ -17,7 +16,9 @@ server {
     }
 
     # Proxy all /api/* requests to the backend service
-    location /api/ {
+    client_max_body_size 50m;
+
+    location ^~ /api/ {
         proxy_pass ${BACKEND_BASE_URL};
         proxy_http_version 1.1;
         proxy_set_header   Host              $host;
