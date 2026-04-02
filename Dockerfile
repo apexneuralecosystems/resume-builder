@@ -21,11 +21,16 @@ RUN apk add --no-cache gettext
 RUN rm /etc/nginx/conf.d/default.conf
 
 # Copy template that will be rendered at container start
-COPY nginx.conf.template /etc/nginx/conf.d/default.conf.template
+RUN mkdir -p /etc/nginx/templates
+COPY nginx.conf.template /etc/nginx/templates/default.conf.template
+
+# Entrypoint renders config + starts nginx
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+RUN chmod +x /docker-entrypoint.sh
 
 # Copy the built Vite output
 COPY --from=builder /app/dist /usr/share/nginx/html
 
 EXPOSE 3232
 
-CMD ["sh", "-c", "BACKEND_BASE_URL=${BACKEND_BASE_URL:-https://resume.builderbackend.apexneural.cloud}; envsubst '$BACKEND_BASE_URL' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"]
+ENTRYPOINT ["/docker-entrypoint.sh"]

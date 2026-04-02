@@ -19,6 +19,8 @@ server {
     client_max_body_size 50m;
 
     location ^~ /api/ {
+        # BACKEND_BASE_URL should be like: https://resume.builderbackend.apexneural.cloud
+        # Nginx will append the original URI (/api/...) to this upstream.
         proxy_pass ${BACKEND_BASE_URL};
         proxy_http_version 1.1;
         proxy_set_header   Host              $host;
