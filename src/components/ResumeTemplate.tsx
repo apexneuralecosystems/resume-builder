@@ -1,7 +1,7 @@
 import React from 'react'
 import { Award } from 'lucide-react'
 import { Author, CaseStudy as CaseStudyType } from '../types'
-import logoImg from '../img/logo-white.png'
+import logoImg from '../img/black-logo.png'
 
 // ── Utilities ─────────────────────────────────────────────────────────────────
 
@@ -223,7 +223,7 @@ export function ResumeTemplate({ author }: { author: Author }) {
                   </div>
                 )}
                 <div
-                  className="rounded-[12px] overflow-hidden border border-gray-200 shadow-sm flex items-center justify-center bg-[#1a1a2e]"
+                  className="rounded-[12px] overflow-hidden border border-gray-200 shadow-sm flex items-center justify-center bg-white"
                   style={{ width: 72, height: 72, position: 'relative' }}
                 >
                   <img
@@ -242,7 +242,7 @@ export function ResumeTemplate({ author }: { author: Author }) {
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: '#ffffff',
+                      color: '#111827',
                       fontWeight: 800,
                       fontSize: 16,
                       letterSpacing: '0.02em',
@@ -413,18 +413,6 @@ export function ResumeTemplate({ author }: { author: Author }) {
                 </p>
               )}
 
-              {/* Meta line */}
-              {(author.yearsExperience || author.company || author.location) && (
-                <div className="mt-1 flex flex-wrap items-baseline text-[9px] text-slate-500 gap-x-1.5">
-                  {author.yearsExperience && (
-                    <span>{author.yearsExperience.replace(/\+$/, '')}+ yrs</span>
-                  )}
-                  {author.yearsExperience && author.company && <span className="opacity-40">·</span>}
-                  {author.company && <span>{author.company}</span>}
-                  {author.company && author.location && <span className="opacity-40">·</span>}
-                  {author.location && <span>{author.location}</span>}
-                </div>
-              )}
             </section>
 
             {/* Projects — ALL projects, no artificial limit */}
